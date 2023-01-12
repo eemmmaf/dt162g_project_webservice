@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 
+//Importerar routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let itemsRouter = require('./routes/items');
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/items', itemsRouter);

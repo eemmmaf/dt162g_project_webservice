@@ -1,3 +1,11 @@
+/*
+ * @Author: Emma Forslund - emfo2102 
+ * @Date: 2023-01-12 16:51:51 
+ * @Last Modified by:   Emma Forslund - emfo2102 
+ * @Last Modified time: 2023-01-12 16:51:51 
+ */
+
+
 var express = require('express');
 var router = express.Router();
 
@@ -86,7 +94,7 @@ db.once('open', function (callback) { // Lyssnare
 
 
 
- //Uppdatering
+ //Uppdatering av kategori
  router.put('/:id', (req, res, next) => {
     const category = new Category({
         _id: req.params.id,

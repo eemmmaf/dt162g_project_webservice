@@ -1,3 +1,11 @@
+/*
+ * @Author: Emma Forslund - emfo2102 
+ * @Date: 2023-01-12 16:52:58 
+ * @Last Modified by:   Emma Forslund - emfo2102 
+ * @Last Modified time: 2023-01-12 16:52:58 
+ */
+
+
 var express = require('express');
 var router = express.Router();
 
@@ -61,7 +69,7 @@ db.once('open', function (callback) { // Lyssnare
 
     });
 
-       /********************************************* 
+    /********************************************* 
      * Lägga till en ny enhet
      *********************************************/
    router.post('/', function (req, res, next) {
@@ -84,7 +92,7 @@ db.once('open', function (callback) { // Lyssnare
 
 
  /********************************************* 
-     * Tar bort en kategori utifrån dess id
+     * Tar bort en enhet utifrån dess id
      *********************************************/
  router.delete('/:id', function (req, res, next) {
     //id som parameter

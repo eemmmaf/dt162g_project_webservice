@@ -1,3 +1,11 @@
+/*
+ * @Author: Emma Forslund - emfo2102 
+ * @Date: 2023-01-12 16:52:13 
+ * @Last Modified by: Emma Forslund - emfo2102
+ * @Last Modified time: 2023-01-12 16:52:37
+ */
+
+
 var express = require('express');
 var router = express.Router();
 
@@ -82,10 +90,10 @@ db.once('open', function (callback) { // Lyssnare
     });
 
     /********************************************* 
-     * Lägga till en ny kurs
+     * Lägga till en ny vara
      *********************************************/
     router.post('/', function (req, res, next) {
-        // Skapar ny kurs
+        // Skapar ny vara
         let item1 = new Item({
             name: req.body.name,
             category: req.body.category,
@@ -93,7 +101,7 @@ db.once('open', function (callback) { // Lyssnare
             quantity: req.body.quantity
         });
 
-        // Lägger till den nya item
+        // Lägger till den nya varan
         item1.save(function (err) {
             if (err) return console.error(err);
         });
@@ -106,7 +114,7 @@ db.once('open', function (callback) { // Lyssnare
 
 
     /********************************************* 
-    * Visa item utifrån dess id
+    * Visa vara utifrån dess id
     *********************************************/
     router.get('/:id', function (req, res, next) {
 
@@ -123,7 +131,7 @@ db.once('open', function (callback) { // Lyssnare
     });
 
 
-    //Uppdatering
+    //Uppdatering av vara
     router.put('/:id', (req, res, next) => {
         const item = new Item({
             _id: req.params.id,

@@ -1,3 +1,11 @@
+/*
+ * @Author: Emma Forslund - emfo2102 
+ * @Date: 2023-01-12 16:53:21 
+ * @Last Modified by: Emma Forslund - emfo2102
+ * @Last Modified time: 2023-01-12 16:54:59
+ */
+
+
 var express = require('express');
 var router = express.Router();
 const { isEmail } = require('validator')
@@ -24,7 +32,7 @@ mongoose.Promise = global.Promise; // Global use of mongoose
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) { // Lyssnare
-  console.log("Connected to db");
+  console.log("Connected to db (User)");
 
   // Skapar schemat för databasen 
   let userSchema = mongoose.Schema({
@@ -52,6 +60,7 @@ db.once('open', function (callback) { // Lyssnare
   let User = mongoose.model('user', userSchema);
 
 
+  //Lägga till en användare
   router.post("/adduser", async (req, res) => {
     try {
       // Hämtar email och lösenord från req.body
@@ -70,7 +79,7 @@ db.once('open', function (callback) { // Lyssnare
 
       // Hash password
       bcrypt.hash(password, saltRounds, (err, hash) => {
-        if (err) throw new Error("Internal Server Error");
+        if (err) throw new Error("Något gick snett. Försök igen");
 
         // Create a new user
         let user = new User({
@@ -89,26 +98,27 @@ db.once('open', function (callback) { // Lyssnare
   });
 
 
+  //Logga in 
   router.post("/log-in", async (req, res) => {
     try {
       // Hämtar email och lösenord från req.body
       const { email, password } = req.body;
 
-      // Check if user exists in database
+      // Kollar om användaren finns i databasen
       let user = await User.findOne({ email });
 
+      //Om användare ej hittas returneras felmeddelande och statuskod
       if (!user) {
         return res.status(401).json({ message: "Fel mailadress eller lösenord" });
       }
 
-      // Compare passwords
+      // Jämför lösenord
       bcrypt.compare(password, user.password, (err, result) => {
         if (result) {
 
-          //Skapa token
+          //Skapar token
           let token;
 
-          //Creating jwt token
           token = jwt.sign(
             { email: user.email },
             "token",
