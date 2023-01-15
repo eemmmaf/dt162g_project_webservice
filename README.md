@@ -6,7 +6,7 @@ Detta repository innehåller filerna till en webbtjänst som är skapad med Node
 Mongoose används för databas-anslutningen och NoSQL-databasen MongoDB för lagring. Databasens namn är shoppingList och de collections som finns är categories, items, units och users. 
 
 ## Använda API:et
-Denna webbtjänst har inte publicerats, utan endast körts lokalt med URL:en http://127.0.0.1:3000/. 
+Denna webbtjänst har inte publicerats, utan endast körts lokalt med http://127.0.0.1:3000/ + endpoint. 
 
 ## Beskrivning av API:et
 
