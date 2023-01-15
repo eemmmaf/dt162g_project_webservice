@@ -1,6 +1,6 @@
 # dt162g_project_webservice
 
-Skapad av Emma Forslund, emfo2102@student.miun.se, 2022
+Skapad av Emma Forslund, emfo2102@student.miun.se, 2023
 
 Detta repository innehåller filerna till en webbtjänst som är skapad med Node.js och express. CRUD(Create, Read, Update och Delete)-funktionalitet har skapats för varor, kategorier och mått. Det går att lägga till användare och logga in användare. 
 Mongoose används för databas-anslutningen och NoSQL-databasen MongoDB för lagring. Databasens namn är shoppingList och de collections som finns är categories, items, units och users. 
