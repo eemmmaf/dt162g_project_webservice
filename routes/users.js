@@ -2,7 +2,7 @@
  * @Author: Emma Forslund - emfo2102 
  * @Date: 2023-01-12 16:53:21 
  * @Last Modified by: Emma Forslund - emfo2102
- * @Last Modified time: 2023-01-12 17:16:18
+ * @Last Modified time: 2023-01-15 18:30:58
  */
 
 
@@ -58,19 +58,6 @@ db.once('open', function (callback) { // Lyssnare
 
   // Skapar model av schemat
   let User = mongoose.model('user', userSchema);
-
-  /*  Testanvändare som läggs till automatiskt för testning. Ta bort /* för att skapa en testanvändare automatiskt
-const newUser = new User({
-  email: "test@mail.se",
-  password: "password",
-});
-
-// Save it to the database
-newUser.save((err, res) => {
-  if (err) return handleError(err);
-  else return console.log("Testanvändare: ", res)
-}); 
-*/
 
 
   //Lägga till en användare
